@@ -13,10 +13,10 @@ struct SystemClock: Clock {
 struct MockClock: Clock {
     let date: NSDate
     
-    init(_ nsDate: String) {
+    init(_ str: String) {
         let inputFormatter = NSDateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd"
-        date = inputFormatter.dateFromString("2016-06-18")!
+        date = inputFormatter.dateFromString(str)!
     }
     
     func now() -> NSDate {

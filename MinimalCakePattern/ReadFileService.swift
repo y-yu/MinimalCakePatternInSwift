@@ -4,10 +4,6 @@ protocol ReadFileService: UsesClock, UsesLogger {
     func readWithDate(fileName: String) -> Optional<(NSDate, String)>
 }
 
-protocol UsesReadFileService {
-    var readFileService: ReadFileService { get }
-}
-
 extension ReadFileService {
     func readWithDate(fileName: String) -> Optional<(NSDate, String)> {
         if let dir : NSString = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
@@ -29,6 +25,7 @@ extension ReadFileService {
     }
 }
 
+
 struct ReadFileServiceImpl: ReadFileService {
     var clock: Clock = SystemClock()
     var logger: Logger = PrintLogger()
@@ -37,4 +34,8 @@ struct ReadFileServiceImpl: ReadFileService {
 struct ReadFileServiceTest: ReadFileService {
     var clock: Clock = MockClock("2016-06-18")
     var logger: Logger = PrintLogger()
+}
+
+protocol UsesReadFileService {
+    var readFileService: ReadFileService { get }
 }

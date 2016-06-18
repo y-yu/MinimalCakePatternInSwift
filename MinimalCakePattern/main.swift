@@ -1,10 +1,10 @@
 import Foundation
 
-protocol Main: UsesReadFileService {
+protocol MainService: UsesReadFileService {
     func main() -> Void
 }
 
-extension Main {
+extension MainService {
     func main() -> Void {
         let opt = readFileService.readWithDate("test.txt")
         _ = opt.map({(f: (NSDate, String)) -> Void in
@@ -14,8 +14,8 @@ extension Main {
     }
 }
 
-struct MainImpl: Main {
+struct MainServiceImpl: MainService {
     var readFileService: ReadFileService = ReadFileServiceImpl()
 }
 
-MainImpl().main()
+MainServiceImpl().main()

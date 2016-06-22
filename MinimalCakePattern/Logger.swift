@@ -4,7 +4,7 @@ protocol Logger {
     func error(m: String) -> Void
 }
 
-struct MixInPrintLogger: Logger {
+class MixInPrintLogger: Logger {
     func info(m: String) -> Void {
         print("Info: " + m)
     }

@@ -26,12 +26,12 @@ extension ReadFileService {
 }
 
 
-struct MixInReadFileService: ReadFileService {
+class MixInReadFileService: ReadFileService {
     var clock: Clock = MixInSystemClock()
     var logger: Logger = MixInPrintLogger()
 }
 
-struct MixInReadFileServiceTest: ReadFileService {
+class MixInReadFileServiceTest: ReadFileService {
     var clock: Clock = MixInMockClock("2016-06-18")
     var logger: Logger = MixInPrintLogger()
 }

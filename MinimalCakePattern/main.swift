@@ -14,7 +14,7 @@ extension MainService {
     }
 }
 
-struct MixInMainService: MainService {
+class MixInMainService: MainService {
     var readFileService: ReadFileService = MixInReadFileService()
 }
 

@@ -4,13 +4,13 @@ protocol Clock {
     func now() -> NSDate
 }
 
-struct SystemClock: Clock {
+struct MixInSystemClock: Clock {
     func now() -> NSDate {
         return NSDate()
     }
 }
 
-struct MockClock: Clock {
+struct MixInMockClock: Clock {
     let date: NSDate
     
     init(_ str: String) {

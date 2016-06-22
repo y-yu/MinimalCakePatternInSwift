@@ -14,8 +14,8 @@ extension MainService {
     }
 }
 
-struct MainServiceImpl: MainService {
-    var readFileService: ReadFileService = ReadFileServiceImpl()
+struct MixInMainService: MainService {
+    var readFileService: ReadFileService = MixInReadFileService()
 }
 
-MainServiceImpl().main()
+MixInMainService().main()

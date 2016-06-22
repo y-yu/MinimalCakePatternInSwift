@@ -26,14 +26,14 @@ extension ReadFileService {
 }
 
 
-struct ReadFileServiceImpl: ReadFileService {
-    var clock: Clock = SystemClock()
-    var logger: Logger = PrintLogger()
+struct MixInReadFileService: ReadFileService {
+    var clock: Clock = MixInSystemClock()
+    var logger: Logger = MixInPrintLogger()
 }
 
-struct ReadFileServiceTest: ReadFileService {
-    var clock: Clock = MockClock("2016-06-18")
-    var logger: Logger = PrintLogger()
+struct MixInReadFileServiceTest: ReadFileService {
+    var clock: Clock = MixInMockClock("2016-06-18")
+    var logger: Logger = MixInPrintLogger()
 }
 
 protocol UsesReadFileService {
